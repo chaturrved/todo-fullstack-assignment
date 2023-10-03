@@ -1,0 +1,40 @@
+<div class="bg-grey-lighter min-h-screen flex flex-col">
+    <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+        <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+            <h1 class="mb-8 text-3xl text-center">Login</h1>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="mb-4">
+                    <input type="text" formControlName="email" class="block border border-grey-light w-full p-3 rounded"
+                        placeholder="Email" />
+                    <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="text-red-600 text-sm mt-1">
+                        {{getErrorMsg('email')}}</div>
+                </div>
+                
+                <div class="mb-4">
+                    <input type="password" formControlName="password" class="block border border-grey-light w-full p-3 rounded"
+                        placeholder="Password" />
+                    <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"
+                        class="text-red-600 text-sm mt-1">{{getErrorMsg('password')}}</div>
+                </div>
+                
+                <button type="submit"
+                    class="w-full text-center py-3 rounded bg-blue-500 text-white hover:bg-blue-700 focus:outline-none my-1">
+                    Log In
+                </button>
+            </form>
+
+            <div class="text-center text-sm text-grey-dark mt-4">
+                Forgot your password? <a class="no-underline border-b border-blue text-blue" href="#">Reset it</a>.
+            </div>
+        </div>
+
+        <div class="text-grey-dark mt-6">
+            Don't have an account yet?
+            <a class="no-underline border-b border-green text-green" href="../signup/">
+                Sign up
+            </a>
+            .
+        </div>
+    </div>
+</div>

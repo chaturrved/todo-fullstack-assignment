@@ -1,0 +1,20 @@
+<div class="bg-blue-500 p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+        <a routerLink="/" class="text-white">
+            <h1 class="text-xl font-bold">TODO List</h1>
+        </a>
+        <ul class="flex space-x-4">
+            <li *ngIf="isSessionActive()">
+                <div>
+                    <a (click)="onLogout()" class="text-white cursor-pointer">Logout</a>
+                </div>
+            </li>
+            <li *ngIf="!isSessionActive()">
+                <a routerLink="/login" class="text-white">Login</a>
+            </li>
+            <li *ngIf="!isSessionActive()">
+                <a routerLink="/signup" class="text-white">Sign Up</a>
+            </li>
+        </ul>
+    </div>
+</div>
